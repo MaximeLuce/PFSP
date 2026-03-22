@@ -37,6 +37,7 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
 - stop condition
 - export table latex for report
 - PMX crossover
+- complete the check_sequence method of the class Individual
 
 ### Questions to ask
 - order of protocol for analysis of parameteres
