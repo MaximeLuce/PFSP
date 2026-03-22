@@ -20,11 +20,11 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
 
 ## Naviguation
 
-- `om`: all the pythons file of the project
-    - `data`: instance of the problem (commin from [GitHub Pages]([https://pages.github.com/](https://github.com/chneau/go-taillard/tree/master/pfsp/instances))
-    - `utilities`: EALogger, ExperimentRunner
-    - `tests`: Unit tests on the class
-    - `problem`: DataLoader, Individual, Problem
+- `app`: all the pythons file of the project
+    - `Data`: instance of the problem (commin from [GitHub Pages]([https://pages.github.com/](https://github.com/chneau/go-taillard/tree/master/pfsp/instances))
+    - `Utilities`: EALogger, ExperimentRunner
+    - `Tests`: Unit tests on the class
+    - `Problem`: DataLoader, Individual, Problem
     - `OptimizationAlgorithm`: EvolutionaryAlgorithm, OptimizationAlgorithm, RandomSearch
     - `Archive`: old files
 - `Topic`: PDF files of the exercise goal and description
@@ -33,11 +33,14 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
 ## Notepad
 
 ### Todo
-- greedy
 - buffer of last generation
 - stop condition
+- export table latex for report
+- PMX crossover
 
 ### Questions to ask
+- order of protocol for analysis of parameteres
+- time computation VS number of evaluation ? adding number of evaluation
 
 ## License
 
