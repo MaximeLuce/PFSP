@@ -1,10 +1,12 @@
 import random
 import copy
-from Individual import *
+from om.problem.Individual import *
+from om.OptimizationAlgorithm.OptimizationAlgorithm import *
 
-class RandomSearch:
+class RandomSearch(OptimizationAlgorithm):
     def __init__(self, problem, pop_size=50000):
-        self.problem = problem
+        super().__init__(problem)
+        #self.problem = problem
         self.pop_size = pop_size
         self.population = []
         self.history = []

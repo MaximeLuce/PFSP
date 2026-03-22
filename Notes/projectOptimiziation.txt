@@ -1,0 +1,23 @@
+marcin komarnicki office hours tuesday 9-11h
+
+- download instances
+-> read
+-> evaluate fonction (input: permutation, output: fitness (score, sum of end times))
+
+evolutionary algorithm
+- initialize a set of random permutation
+--> population (exemple: 50)
+--> evals
+- loop: 1000
+--> we crossed over 2 good solutions (2 parents and cross over)
+--> 2 children for 2 parents, new solutions
+--> mutation
+--> then again evaluation and repeat the process (25 times to create the new 50 populations)
+
+-> to select parent, tournament with 5 (for example) member of the population
+
+-> to cross over, swap (position random) or inversion
+
+-> 2 crossover, 1 permutation
+
+FINALLY, comparison with random and greedy

@@ -1,11 +1,13 @@
 import random
 import copy
-from Individual import *
-from EALogger import *
+from om.problem.Individual import *
+from om.utilities.EALogger import *
+from om.OptimizationAlgorithm.OptimizationAlgorithm import *
 
-class EvolutionaryAlgorithm:
+class EvolutionaryAlgorithm(OptimizationAlgorithm):
     def __init__(self, problem, pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1):
-        self.problem = problem
+        super().__init__(problem) # constructor of the mother class
+        #self.problem = problem
         self.pop_size = pop_size  # size of the population
         self.generations = generations # number of generatio,
         self.tour_size = tour_size # size of the tournament
@@ -106,6 +108,8 @@ class EvolutionaryAlgorithm:
                 self.mutate_swap(c2)
                 
                 # Evaluation
+
+                """NOTE : TO DO BUFFER THE LAST POPULATION AND CHECK BEFORE EVALUATE AGAIN"""
                 c1.evaluate(self.problem)
                 c2.evaluate(self.problem)
                 
@@ -119,11 +123,10 @@ class EvolutionaryAlgorithm:
             
         # display the best overall
         best_overall = min(self.population, key=lambda x: x.fitness)
-        print(f"Fin de l'évolution. Meilleur fitness trouvé : {best_overall.fitness}")
+        #print(f"End of the evolution, best found: {best_overall.fitness}")
 
         #print(min(self.population, key=lambda x: x.fitness).fitness)
         #return min(self.population, key=lambda x: x.fitness)
         
         return best_overall
-        
         

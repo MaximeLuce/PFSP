@@ -1,0 +1,7 @@
+pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1
+
+pop_sizes = [i * 2 for i in range(10,100)]
+        generations_list = [i * 2 for i in range(10,100)]
+        
+
+    filepath = "om/data/tai20_5_0.fsp"

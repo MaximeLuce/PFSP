@@ -1,0 +1,6 @@
+
+    filepath = "om/data/tai20_5_0.fsp"
+    
+pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1
+
+EA

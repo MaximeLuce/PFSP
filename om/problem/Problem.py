@@ -1,5 +1,5 @@
 import numpy as np
-from DataLoader import * # use in the alternative constructor
+from om.problem.DataLoader import * # use in the alternative constructor
 
 class Problem:
     """
@@ -10,6 +10,9 @@ class Problem:
         self.num_jobs = num_jobs # number of jobs
         self.num_machines = num_machines # numbers of machines
         self.processing_times = processing_times # matrix M x J of the processing_times
+
+    def __str__(self):
+        return f'Problem with {self.num_jobs} tasks and {self.num_machines} machines. Matrix = {self.processing_times}'
         
     @classmethod
     def from_file(cls, filepath):
@@ -48,3 +51,5 @@ class Problem:
         total_flow_time = np.sum(C[M-1, :])
         
         return total_flow_time
+
+
