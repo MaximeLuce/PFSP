@@ -1,8 +1,8 @@
 import random
 import copy
-from om.problem.Individual import *
-from om.utilities.EALogger import *
-from om.OptimizationAlgorithm.OptimizationAlgorithm import *
+from app.Problem.Individual import *
+from app.utilities.EALogger import *
+from app.OptimizationAlgorithm.OptimizationAlgorithm import *
 
 class EvolutionaryAlgorithm(OptimizationAlgorithm):
     def __init__(self, problem, pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1):

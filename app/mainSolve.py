@@ -1,9 +1,9 @@
 import numpy as np
 
-from om.problem.DataLoader import * # class to load the .fsp file
-from om.problem.Problem import * # class that contain a problem
-from om.OptimizationAlgorithm.EvolutionaryAlgorithm import *
-from om.OptimizationAlgorithm.RandomSearch import *
+from app.Problem.DataLoader import * # class to load the .fsp file
+from app.Problem.Problem import * # class that contain a problem
+from app.OptimizationAlgorithm.EvolutionaryAlgorithm import *
+from app.OptimizationAlgorithm.RandomSearch import *
 
 if __name__ == "__main__":
 

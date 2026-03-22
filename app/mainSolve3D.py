@@ -1,14 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from om.problem.DataLoader import * 
-from om.problem.Problem import * 
-from om.OptimizationAlgorithm.EvolutionaryAlgorithm import *
-from om.OptimizationAlgorithm.RandomSearch import *
+from app.Problem.DataLoader import * 
+from app.Problem.Problem import * 
+from app.OptimizationAlgorithm.EvolutionaryAlgorithm import *
+from app.OptimizationAlgorithm.RandomSearch import *
 
 if __name__ == "__main__":
 
-    filepath = "om/data/tai20_5_0.fsp"
+    filepath = "app/data/tai20_5_0.fsp"
     
     try:
         # Initizalisation
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     
         surf = ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='k', alpha=0.8)
         
-        ax.set_title("Impact de Pop Size et Generations sur le temps total (PFSP)")
+        ax.set_title("Impact of Pop Size and Generations on total time")
         ax.set_xlabel('Population Size (X)')
         ax.set_ylabel('Generations (Y)')
         ax.set_zlabel('Best Fitness (Z - à minimiser)')

@@ -1,4 +1,4 @@
-from om.problem.Problem import Problem
+from app.Problem.Problem import Problem
 
 # TEST
 

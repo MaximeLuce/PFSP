@@ -1,7 +1,7 @@
 import numpy as np
 
-from om.problem.DataLoader import * # class to load the .fsp file
-from om.problem.Problem import * # class that contain a problem
+from app.problem.DataLoader import * # class to load the .fsp file
+from app.problem.Problem import * # class that contain a problem
 
 if __name__ == "__main__":
 

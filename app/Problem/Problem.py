@@ -1,5 +1,5 @@
 import numpy as np
-from om.problem.DataLoader import * # use in the alternative constructor
+from app.Problem.DataLoader import * # use in the alternative constructor
 
 class Problem:
     """
