@@ -7,7 +7,7 @@ from app.OptimizationAlgorithm.RandomSearch import *
 
 if __name__ == "__main__":
 
-    filepath = "om/data/tai20_5_0.fsp"
+    filepath = "app/Data/tai20_5_0.fsp"
     
     try:
         # initialization of the problem

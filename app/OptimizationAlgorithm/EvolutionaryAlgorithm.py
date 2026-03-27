@@ -1,11 +1,11 @@
 import random
 import copy
 from app.Problem.Individual import *
-from app.utilities.EALogger import *
+from app.Utilities.EALogger import *
 from app.OptimizationAlgorithm.OptimizationAlgorithm import *
 
 class EvolutionaryAlgorithm(OptimizationAlgorithm):
-    def __init__(self, problem, pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1):
+    def __init__(self, problem, pop_size=100, generations=100, tour_size=5, px=0.7, pm=0.1, mutation='swap', crossover='ox',elitism_size=0):
         super().__init__(problem) # constructor of the mother class
         #self.problem = problem
         self.pop_size = pop_size  # size of the population
@@ -15,6 +15,9 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
         self.pm = pm # mutation probability
         self.population = []
         self.logger = EALogger() # for log the results of each generation
+        self.crossover = crossover
+        self.mutation = mutation
+        self.elitism_size = elitism_size
 
     def initialize_population(self):
         """Initialize the population randomly."""
@@ -81,15 +84,29 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
             individual.sequence[idx1:idx2+1] = reversed(individual.sequence[idx1:idx2+1])
 
     def run(self):
-        """Exécute l'algorithme génétique sur le nombre de générations défini."""
+        """Run the EA."""
         self.initialize_population()
-        self.logger = EALogger() # initialize the logger at the beginning
+
+        '''We disabled logger to run experiment faster !!'''
+        #self.logger = EALogger() # initialize the logger at the beginning
         
+        best_overall = copy.deepcopy(min(self.population, key=lambda x: x.fitness))
+
+        '''We disabled logger to run experiment faster !!'''
         # Log generatio n0
-        self.logger.log_generation(0, self.population)
+        #self.logger.log_generation(0, self.population)
         
         for gen in range(1, self.generations + 1):
             new_population = []
+
+            # elitism feature
+            if self.elitism_size > 0:
+                # we sort the actual population from better to worse
+                self.population.sort(key=lambda x: x.fitness)
+                
+                # we deepcopy the'elitism_size' best in the new generation
+                for i in range(self.elitism_size):
+                    new_population.append(copy.deepcopy(self.population[i]))
             
             while len(new_population) < self.pop_size:
                 # selection
@@ -97,18 +114,35 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
                 p2 = self.tournament_selection()
                 
                 # Crossover
-                if random.random() < self.px:
-                    c1, c2 = self.crossover_ox(p1, p2)
+                if self.crossover == 'ox':
+                    if random.random() < self.px:
+                        c1, c2 = self.crossover_ox(p1, p2)
+                    else:
+                        c1, c2 = copy.deepcopy(p1), copy.deepcopy(p2)
+                elif self.crossover == 'pmx':
+                    print('To be')
+                elif self.crossover == 'cx':
+                    print('To be')
                 else:
-                    c1, c2 = copy.deepcopy(p1), copy.deepcopy(p2)
+                    print('Crossover not defined, using ox by default')
+                    if random.random() < self.px:
+                        c1, c2 = self.crossover_ox(p1, p2)
+                    else:
+                        c1, c2 = copy.deepcopy(p1), copy.deepcopy(p2)
                 
                 # Mutation
-                """Or inversion !"""
-                self.mutate_swap(c1)
-                self.mutate_swap(c2)
+                if self.mutation == 'swap':
+                    self.mutate_swap(c1)
+                    self.mutate_swap(c2)
+                elif self.mutation == 'inversion':
+                    print('To be')
+                    """Or inversion !"""
+                else:
+                    print("Mutation not defined, using swap by default...")
+                    self.mutate_swap(c1)
+                    self.mutate_swap(c2)
                 
                 # Evaluation
-
                 """NOTE : TO DO BUFFER THE LAST POPULATION AND CHECK BEFORE EVALUATE AGAIN"""
                 c1.evaluate(self.problem)
                 c2.evaluate(self.problem)
@@ -118,11 +152,17 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
             # Replacement
             self.population = new_population[:self.pop_size]
             
+            '''We disabled logger to run experiment faster !!'''
             # Saving the stats of the current generation
-            self.logger.log_generation(gen, self.population)
+            #self.logger.log_generation(gen, self.population)
+
+            # At the genereation's end, we update the best overall if needed
+            current_best = min(self.population, key=lambda x: x.fitness)
+            if current_best.fitness < best_overall.fitness:
+                best_overall = copy.deepcopy(current_best)
             
         # display the best overall
-        best_overall = min(self.population, key=lambda x: x.fitness)
+        #best_overall = min(self.population, key=lambda x: x.fitness)
         #print(f"End of the evolution, best found: {best_overall.fitness}")
 
         #print(min(self.population, key=lambda x: x.fitness).fitness)

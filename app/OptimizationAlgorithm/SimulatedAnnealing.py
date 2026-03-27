@@ -5,7 +5,7 @@ from app.OptimizationAlgorithm.OptimizationAlgorithm import OptimizationAlgorith
 from app.Problem.Individual import Individual
 
 class SimulatedAnnealing(OptimizationAlgorithm):
-    def __init__(self, problem, max_evaluations, initial_temp=1000.0, cooling_rate=0.99):
+    def __init__(self, problem, max_evaluations=10000, initial_temp=1000.0, cooling_rate=0.99):
         super().__init__(problem) # constructor of OptimizationAlgorithm
         self.max_evaluations = max_evaluations
         self.initial_temp = initial_temp

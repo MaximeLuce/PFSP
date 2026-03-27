@@ -10,9 +10,14 @@ class Problem:
         self.num_jobs = num_jobs # number of jobs
         self.num_machines = num_machines # numbers of machines
         self.processing_times = processing_times # matrix M x J of the processing_times
+        self.evaluations_count = 0 # global counter
 
     def __str__(self):
         return f'Problem with {self.num_jobs} tasks and {self.num_machines} machines. Matrix = {self.processing_times}'
+    
+    def reset_counter(self):
+        """Remet le compteur à zéro avant de lancer un nouvel algorithme."""
+        self.evaluations_count = 0
         
     @classmethod
     def from_file(cls, filepath):
@@ -24,6 +29,8 @@ class Problem:
         """
         Compute objective function f(x) for x a given sequence, x is a list of indices of tasks (0 to J-1).
         """
+        self.evaluations_count += 1 # we increment the NFE counter
+
         M = self.num_machines # number of machines
         J = self.num_jobs # number of jobs
         p = self.processing_times # matrix of the problem

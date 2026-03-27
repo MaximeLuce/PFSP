@@ -15,8 +15,10 @@ if __name__ == "__main__":
         problem = Problem.from_file(filepath)
         print(f"Data well loaded: {problem.num_jobs} tasks, {problem.num_machines} machines.")
         
-        pop_sizes = [i * 2 for i in range(10,100)]
-        generations_list = [i * 2 for i in range(10,100)]
+        #pop_sizes = [i * 2 for i in range(10,30)]
+        #generations_list = [i * 2 for i in range(10,30)]
+        pop_sizes = [10, 100, 1000, 5000]
+        generations_list = [10, 100, 1000, 5000]
         
         X, Y = np.meshgrid(pop_sizes, generations_list)
         Z = np.zeros(X.shape)
