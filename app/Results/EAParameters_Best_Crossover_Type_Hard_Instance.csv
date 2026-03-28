@@ -1,0 +1,4 @@
+Case_ID;Instance;Population Size;Generations number;Px;Pm;Tour;Mutation Type;Crossover Type;EA_Best;EA_Worst;EA_Avg;EA_Std;EA_Time(s);EA_NFE_Avg;Best_Known_Value
+19;tai500_20_0.fsp;100;100;1;1;20;swap;ox;7326669.0;7394134.0;7352788.6;19627.19;1038.401;10000;6697476
+20;tai500_20_0.fsp;100;100;1;1;20;swap;pmx;7295784.0;7347446.0;7323820.3;15456.29;868.282;10000;6697476
+21;tai500_20_0.fsp;100;100;1;1;20;swap;cx;7351373.0;7449460.0;7397009.3;30614.76;853.303;10000;6697476

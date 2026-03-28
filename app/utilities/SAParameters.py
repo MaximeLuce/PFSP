@@ -4,35 +4,43 @@ from app.OptimizationAlgorithm.SimulatedAnnealing import SimulatedAnnealing
 from app.OptimizationAlgorithm.RandomSearch import RandomSearch
 from app.OptimizationAlgorithm.Greedy import Greedy
 import statistics
-import time
+#import time
+import timeit
 import os
 import csv
 
 class SAParameters:
     def __init__(self):
-        # Pour tester rapidement, on garde une seule instance. 
-        # Tu pourras décommenter les autres plus tard.
         self.instances = [
-            "tai20_5_0.fsp", 
+            ## easy instances
+            #"tai20_5_0.fsp", 
             # "tai20_10_0.fsp", "tai20_20_0.fsp", 
+            ## medium instances
             # "tai100_10_0.fsp", "tai100_20_0.fsp",
-            #"tai500_20_0.fsp"
+            ## hard instances
+            "tai500_20_0.fsp"
         ]
         self.best_known_value = [
-             "14033",
+            ## easy instances
+            # "14033",
             # "20911", "33623",
+            ## medium instances
             # "300566", "367267",
-            #"6697476"
+            ## hard instances
+            "6697476"
         ]
 
         self.cases = [
             # Best initial_temp
-            {"id": "25", "initial_temp": 100, "cooling_rate": 0.99},
-            {"id": "26", "initial_temp": 1000, "cooling_rate": 0.99},
-            {"id": "27", "initial_temp": 10000, "cooling_rate": 0.99},
+            #{"id": "25", "initial_temp": 100, "cooling_rate": 0.99},
+            #{"id": "26", "initial_temp": 1000, "cooling_rate": 0.99},
+            #{"id": "27", "initial_temp": 10000, "cooling_rate": 0.99},
 
             # Best cooling_rate
-            
+            {"id": "28", "initial_temp": 1000, "cooling_rate": 0.90},
+            {"id": "29", "initial_temp": 1000, "cooling_rate": 0.99},
+            {"id": "30", "initial_temp": 1000, "cooling_rate": 0.999},
+            {"id": "31", "initial_temp": 1000, "cooling_rate": 0.9999}
         ]
 
     def _calc_stats(self, results):
@@ -47,7 +55,13 @@ class SAParameters:
         # main parameters
         runs_per_algo = 10 
         
-        csv_filepath = "app/Results/SAParameters.csv"
+        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Basic_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Medium_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Hard_Instance.csv"
+
+        #csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Basic_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Medium_Instances.csv"
+        csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Hard_Instance.csv"
         
         print(f"Start running... Results will be saved to {csv_filepath}")
     
@@ -58,7 +72,7 @@ class SAParameters:
             
             if not file_exists:
                 header = [
-                    "Case_ID", "Instance",
+                    "Case_ID", "Instance", "Initial_temp", "Cooling_rate",
                     "SA_Best", "SA_Worst", "SA_Avg", "SA_Std", "SA_Time(s)", "SA_NFE_Avg",
                     "Best_Known_Value"
                 ]
@@ -77,30 +91,30 @@ class SAParameters:
                 print(f"{'='*50}")
                 
                 for case in self.cases:
-                    print(f"\n--- RUNNING CASE {case['id']} ---")
-                    print(f"Params: Pop={case['pop_size']}, Gen={case['generations']}, Total Evals={case['pop_size'] * case['generations']}")
-                    
-                    # Récupération des paramètres du cas courant
                     initial_temp = case["initial_temp"]
                     cooling_rate = case["cooling_rate"]
-                    
+
                     total_evals = 10000
+
+                    print(f"\n--- RUNNING CASE {case['id']} ---")
+                    print(f"Params: initial_temp={initial_temp}, cooling_rate={cooling_rate}, Total Evals={total_evals}")
+                    
 
                     # Simulated Annealing [10x]
                     sa_results = []
                     sa_evals = []
-                    t0_sa = time.perf_counter()
+                    t0_sa = timeit.default_timer()
                     for _ in range(runs_per_algo):
                         problem.reset_counter() # set to 0 the NFE counter
-                        sa = SimulatedAnnealing(problem, max_evaluations=total_evals)
+                        sa = SimulatedAnnealing(problem, total_evals, initial_temp, cooling_rate)
                         best_ind = sa.run()
                         sa_evals.append(problem.evaluations_count)
                         sa_results.append(float(best_ind.fitness))
-                    t_sa = time.perf_counter() - t0_sa
+                    t_sa = timeit.default_timer() - t0_sa
                     sa_b, sa_w, sa_a, sa_s = self._calc_stats(sa_results)
                     sa_b_evals, sa_w_evals, sa_a_evals, sa_s_evals = self._calc_stats(sa_evals)
 
-                    print("End of computation for SimulatedAnnealing")
+                    #print("End of computation for SimulatedAnnealing")
 
 
                     # display head of table
@@ -120,7 +134,7 @@ class SAParameters:
                     print("-" * 135)
 
                     row = [
-                        case['id'], instance,
+                        case['id'], instance, initial_temp, cooling_rate,
                         round(sa_b, 1), round(sa_w, 1), round(sa_a, 2), round(sa_s, 2), round(t_sa, 3), round(sa_a_evals, 1),
                         best_known_value
                     ]

@@ -9,7 +9,7 @@ def generate_latex_table(csv_path):
     num_instances = len(instances)
     
     # formating data: extracting interesting columns
-    metrics = ['EA_Best', 'EA_Worst', 'EA_Avg', 'EA_Std', 'EA_Time(s)', 'EA_NFE_Avg', 'Best_Known_Value']
+    metrics = ['SA_Best', 'SA_Worst', 'SA_Avg', 'SA_Std', 'SA_Time(s)', 'SA_NFE_Avg', 'Best_Known_Value']
     data = {m: [] for m in metrics}
     
     for inst in instances:
@@ -37,12 +37,12 @@ def generate_latex_table(csv_path):
         \\multirow{{2}}{{*}}{{\\textbf{{Data}}}} & \\multirow{{2}}{{*}}{{\\diagbox[width=3.5cm, height=1.2cm]{{\\textbf{{Stat.}}}}{{\\textbf{{Case n°}}}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} \\\\
         & & & & & & & & & & & & & \\\\ \\hline
         \\multirow{{4}}{{*}}{{\\textbf{{Score}}}} 
-        & \\textbf{{best*}} & {get_row('EA_Best')} \\\\
-        & \\textbf{{worst}} & {get_row('EA_Worst')} \\\\
-        & \\textbf{{avg}}   & {get_row('EA_Avg')} \\\\
-        & \\textbf{{std}}   & {get_row('EA_Std')} \\\\ \\hline
-        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('EA_Time(s)')} \\\\ \\hline
-        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('EA_NFE_Avg')} \\\\ \\hline
+        & \\textbf{{best*}} & {get_row('SA_Best')} \\\\
+        & \\textbf{{worst}} & {get_row('SA_Worst')} \\\\
+        & \\textbf{{avg}}   & {get_row('SA_Avg')} \\\\
+        & \\textbf{{std}}   & {get_row('SA_Std')} \\\\ \\hline
+        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('SA_Time(s)')} \\\\ \\hline
+        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('SA_NFE_Avg')} \\\\ \\hline
         \\multicolumn{{2}}{{|c|}}{{\\textbf{{Best Known Value}}}} & {get_row('Best_Known_Value')} \\\\ \\hline
     \\end{{tabular}}
     }}
@@ -62,12 +62,12 @@ def generate_latex_table(csv_path):
         \\multirow{{2}}{{*}}{{\\textbf{{Data}}}} & \\multirow{{2}}{{*}}{{\\diagbox[width=3.5cm, height=1.2cm]{{\\textbf{{Stat.}}}}{{\\textbf{{Case n°}}}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} \\\\
         & & & & & & & & & \\\\ \\hline
         \\multirow{{4}}{{*}}{{\\textbf{{Score}}}} 
-        & \\textbf{{best*}} & {get_row('EA_Best')} \\\\
-        & \\textbf{{worst}} & {get_row('EA_Worst')} \\\\
-        & \\textbf{{avg}}   & {get_row('EA_Avg')} \\\\
-        & \\textbf{{std}}   & {get_row('EA_Std')} \\\\ \\hline
-        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('EA_Time(s)')} \\\\ \\hline
-        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('EA_NFE_Avg')} \\\\ \\hline
+        & \\textbf{{best*}} & {get_row('SA_Best')} \\\\
+        & \\textbf{{worst}} & {get_row('SA_Worst')} \\\\
+        & \\textbf{{avg}}   & {get_row('SA_Avg')} \\\\
+        & \\textbf{{std}}   & {get_row('SA_Std')} \\\\ \\hline
+        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('SA_Time(s)')} \\\\ \\hline
+        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('SA_NFE_Avg')} \\\\ \\hline
         \\multicolumn{{2}}{{|c|}}{{\\textbf{{Best Known Value}}}} & {get_row('Best_Known_Value')} \\\\ \\hline
     \\end{{tabular}}
     }}
@@ -86,12 +86,12 @@ def generate_latex_table(csv_path):
         \\multirow{{2}}{{*}}{{\\textbf{{Data}}}} & \\multirow{{2}}{{*}}{{\\diagbox[width=3.5cm, height=1.2cm]{{\\textbf{{Stat.}}}}{{\\textbf{{Case n°}}}}}} & \\multirow{{2}}{{*}}{{\\textbf{{1}}}} & \\multirow{{2}}{{*}}{{\\textbf{{2}}}} & \\multirow{{2}}{{*}}{{\\textbf{{3}}}} & \\multirow{{2}}{{*}}{{\\textbf{{4}}}} \\\\
         & & & & & \\\\ \\hline
         \\multirow{{4}}{{*}}{{\\textbf{{Score}}}} 
-        & \\textbf{{best*}} & {get_row('EA_Best')} \\\\
-        & \\textbf{{worst}} & {get_row('EA_Worst')} \\\\
-        & \\textbf{{avg}}   & {get_row('EA_Avg')} \\\\
-        & \\textbf{{std}}   & {get_row('EA_Std')} \\\\ \\hline
-        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('EA_Time(s)')} \\\\ \\hline
-        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('EA_NFE_Avg')} \\\\ \\hline
+        & \\textbf{{best*}} & {get_row('SA_Best')} \\\\
+        & \\textbf{{worst}} & {get_row('SA_Worst')} \\\\
+        & \\textbf{{avg}}   & {get_row('SA_Avg')} \\\\
+        & \\textbf{{std}}   & {get_row('SA_Std')} \\\\ \\hline
+        \\textbf{{Time}} & \\textbf{{second (s)}} & {get_row('SA_Time(s)')} \\\\ \\hline
+        \\textbf{{NFE}} & \\textbf{{number}} & {get_row('SA_NFE_Avg')} \\\\ \\hline
         \\multicolumn{{2}}{{|c|}}{{\\textbf{{Best Known Value}}}} & {get_row('Best_Known_Value')} \\\\ \\hline
     \\end{{tabular}}
     \\caption{{\\textbf{{Results for 1 hard instance.}}}}
@@ -103,5 +103,5 @@ def generate_latex_table(csv_path):
 
     return latex_code
 
-code_latex = generate_latex_table("app/Results/EAParameters_Elitism_Hard_Instance.csv")
+code_latex = generate_latex_table("app/Results/SAParameters_Best_Cooling_Rate_Hard_Instance.csv")
 print(code_latex)
