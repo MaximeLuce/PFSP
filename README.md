@@ -30,18 +30,44 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
 - `Topic`: PDF files of the exercise goal and description
 - `Report`: Report on the project
 
-## Notepad
+### Modules used for this project
 
-### Todo
+#### Standard and external modules
+* `abc` (and `ABC`, `abstractmethod`)
+* `copy` (and `copy()`, `deepcopy()`)
+* `csv` (and `writer()`, `writerow()`, `DictWriter()`, `writeheader()`, `writerows()`)
+* `math` (and `exp()`)
+* `matplotlib.pyplot` (and `figure()`, `plot()`, `title()`, `xlabel()`, `ylabel()`, `legend()`, `grid()`, `show()`, `savefig()`, `close()`)
+* `numpy` (and `zeros()`)
+* `os` (and `path.isfile()`, `environ`)
+* `random` (and `random()`, `sample()`, `shuffle()`)
+* `statistics` (and `mean()`, `stdev()`)
+* `time` (and `perf_counter()`)
+* `timeit` (and `default_timer()`)
+
+#### Built-ins
+* `enumerate()`
+* `float()`
+* `len()`
+* `max()`
+* `min()`
+* `open()`
+* `reversed()`
+* `round()`
+* `sorted()`
+
+#### Methods for lists, strings and files
+* `append()`
+* `extend()`
+* `flush()`
+* `index()`
+* `remove()`
+* `replace()`
+* `sort()`
+
+### To Do
 - buffer of last generation
-- stop condition
-- export table latex for report
-- PMX crossover
 - complete the check_sequence method of the class Individual
-
-### Questions to ask
-- order of protocol for analysis of parameteres
-- time computation VS number of evaluation ? adding number of evaluation
 
 ## License
 
