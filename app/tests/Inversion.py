@@ -6,7 +6,7 @@ from app.OptimizationAlgorithm.EvolutionaryAlgorithm import EvolutionaryAlgorith
 # TEST
 
 if __name__ == "__main__":
-    print("--- test swap ---")
+    print("--- test inversion ---")
     
     # example sequence
     original_sequence = [2, 4, 6, 9, 1, 3, 8]
