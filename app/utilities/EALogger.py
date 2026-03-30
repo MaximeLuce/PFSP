@@ -58,3 +58,28 @@ class EALogger:
         plt.legend()
         plt.grid(True)
         plt.show()
+    
+    def plot_save(self, save_path):
+        if not self.history:
+            print("No data.")
+            return
+
+        gens = [data['generation'] for data in self.history]
+        bests = [data['best'] for data in self.history]
+        avgs = [data['avg'] for data in self.history]
+        worsts = [data['worst'] for data in self.history]
+
+        plt.figure(figsize=(10, 6))
+        plt.plot(gens, bests, label='Best', color='green', linewidth=2)
+        plt.plot(gens, avgs, label='Average', color='blue', linestyle='--')
+        plt.plot(gens, worsts, label='Worst', color='red', alpha=0.5)
+
+        plt.title("The Evolution of the Objective Function Across Generations")
+        plt.xlabel("Generations")
+        plt.ylabel("Total flow time (Fitness)")
+        plt.legend()
+        plt.grid(True)
+        
+        plt.savefig(save_path, bbox_inches='tight')
+        
+        plt.close()

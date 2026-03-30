@@ -7,7 +7,7 @@ from app.OptimizationAlgorithm.RandomSearch import *
 
 if __name__ == "__main__":
 
-    filepath = "app/Data/tai20_5_0.fsp"
+    filepath = "app/Data/tai20_10_0.fsp"
     
     try:
         # initialization of the problem
@@ -16,11 +16,28 @@ if __name__ == "__main__":
         
         # # EA solver
         # EvolutionaryAlgorithm(problem).run()
+
+        # final parameters
+        pop_size = 100
+        generations = 1000
+        total_evals = pop_size * generations 
+        
+        # for EA
+        tour_size = 20
+        px = 1
+        pm = 1
+        mutation = 'swap' # or 'inversion'
+        crossover = 'pmx'
+        elitism = 0
+
+        # SA
+        initial_temp = 1000
+        cooling_rate = 0.999
        
-        ea = EvolutionaryAlgorithm(problem, pop_size=100, generations=100)
+        ea = EvolutionaryAlgorithm(problem, pop_size, generations-1, tour_size, px, pm, mutation, crossover, elitism)
         best_solution = ea.run()
         # export and isplay results
-        ea.logger.export_to_csv(f"resultats_tai20_5_0.csv")
+        ea.logger.export_to_csv(f"app/Results/Convergence/tai20_10_0_EA.csv")
         ea.logger.plot_progress()
 
         # # Random Search

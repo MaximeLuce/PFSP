@@ -10,9 +10,11 @@ os.environ["NUMEXPR_NUM_THREADS"] = "1" # NumExpr
 from app.Utilities.ComparisonRunner import ComparisonRunner
 from app.Utilities.SAParameters import SAParameters
 from app.Utilities.EAParameters import EAParameters
+from app.Utilities.EAConvergence import EAConvergence
 
 if __name__ == "__main__":
     #runner = EAParameters()
     #runner = SAParameters()
-    runner = ComparisonRunner()
+    #runner = ComparisonRunner()
+    runner = EAConvergence()
     runner.run_all()

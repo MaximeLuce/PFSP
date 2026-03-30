@@ -172,13 +172,13 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
         self.initialize_population()
 
         '''We disabled logger to run experiment faster !!'''
-        #self.logger = EALogger() # initialize the logger at the beginning
+        self.logger = EALogger() # initialize the logger at the beginning
         
         best_overall = copy.deepcopy(min(self.population, key=lambda x: x.fitness))
 
         '''We disabled logger to run experiment faster !!'''
         # Log generatio n0
-        #self.logger.log_generation(0, self.population)
+        self.logger.log_generation(0, self.population)
         
         for gen in range(1, self.generations + 1):
             new_population = []
@@ -244,7 +244,7 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
             
             '''We disabled logger to run experiment faster !!'''
             # Saving the stats of the current generation
-            #self.logger.log_generation(gen, self.population)
+            self.logger.log_generation(gen, self.population)
 
             # At the genereation's end, we update the best overall if needed
             current_best = min(self.population, key=lambda x: x.fitness)
