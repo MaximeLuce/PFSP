@@ -5,7 +5,7 @@ def extract_size(inst_name):
     match = re.search(r'tai(\d+)_(\d+)', str(inst_name))
     if match:
         return f"{match.group(1)}x{match.group(2)}"
-    return inst_name.replace('_', '\\_') # Fallback si le nom est différent
+    return inst_name.replace('_', '\\_') # Fallback if the name is different
 
 def generate_latex_table_algos(csv_path):
     df = pd.read_csv(csv_path, sep=';')

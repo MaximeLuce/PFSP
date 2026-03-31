@@ -16,7 +16,9 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
   - Number of generation
   - Crossover methods : OX and PMX
   - Mutation methods : Swap or Inversion
-- Simulated Annealing
+- Simulated Annealing with two parameters
+  - initial temperature
+  - cooling rate
 
 ## Naviguation
 
@@ -26,9 +28,12 @@ It aims to study the Permutation Flowshop Scheduling Problem (PFSP) which is an 
     - `Tests`: Unit tests on the class
     - `Problem`: DataLoader, Individual, Problem
     - `OptimizationAlgorithm`: EvolutionaryAlgorithm, OptimizationAlgorithm, RandomSearch
+    - `Results`: folder where all csv were exported and contains file to export CSV to LaTeX tables
     - `Archive`: old files
 - `Topic`: PDF files of the exercise goal and description
 - `Report`: Report on the project
+- `Figures`: Convergence graphs and figures
+- `Notes`: some of my notes during the project
 
 ### Modules used for this project
 
