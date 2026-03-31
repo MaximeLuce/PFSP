@@ -83,44 +83,44 @@ class EAParameters:
         runs_per_algo = 10
 
         """TABLE 1"""
-        #csv_filepath = "app/Results/EAParameters_Best_Ratio_Generation_Population_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Ratio_Generation_Population_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Ratio_Generation_Population_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Ratio_Generation_Population_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Ratio_Generation_Population_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Ratio_Generation_Population_Hard_Instance.csv"
 
         """TABLE 2"""
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Probability_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Probability_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Probability_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Probability_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Probability_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Probability_Hard_Instance.csv"
         
 
         """TABLE 3"""
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Probability_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Probability_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Probability_Hard_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Probability_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Probability_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Probability_Hard_Instances.csv"
         
 
         """TABLE 4"""
-        #csv_filepath = "app/Results/EAParameters_Best_Tour_Size_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Tour_Size_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Tour_Size_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Tour_Size_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Tour_Size_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Tour_Size_Hard_Instance.csv"
         
 
         """TABLE 5"""
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Type_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Type_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Mutation_Type_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Type_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Type_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Mutation_Type_Hard_Instance.csv"
         
 
         """TABLE 6"""
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Type_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Type_Medium_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Best_Crossover_Type_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Type_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Type_Medium_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Best_Crossover_Type_Hard_Instance.csv"
         
 
         """TABLE 7"""
-        #csv_filepath = "app/Results/EAParameters_Elitism_Basic_Instances.csv"
-        #csv_filepath = "app/Results/EAParameters_Elitism_Medium_Instances.csv"
-        csv_filepath = "app/Results/EAParameters_Elitism_Hard_Instance.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Elitism_Basic_Instances.csv"
+        #csv_filepath = "app/Results/EAParameters/EAParameters_Elitism_Medium_Instances.csv"
+        csv_filepath = "app/Results/EAParameters/EAParameters_Elitism_Hard_Instance.csv"
         
         
         print(f"Start running... Results will be saved to {csv_filepath}")

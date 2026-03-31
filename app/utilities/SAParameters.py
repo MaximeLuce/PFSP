@@ -55,13 +55,13 @@ class SAParameters:
         # main parameters
         runs_per_algo = 10 
         
-        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Basic_Instances.csv"
-        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Medium_Instances.csv"
-        #csv_filepath = "app/Results/SAParameters_Best_Initial_Temperature_Hard_Instance.csv"
+        #csv_filepath = "app/Results/SAParameters/SAParameters_Best_Initial_Temperature_Basic_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters/SAParameters_Best_Initial_Temperature_Medium_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters/SAParameters_Best_Initial_Temperature_Hard_Instance.csv"
 
-        #csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Basic_Instances.csv"
-        #csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Medium_Instances.csv"
-        csv_filepath = "app/Results/SAParameters_Best_Cooling_Rate_Hard_Instance.csv"
+        #csv_filepath = "app/Results/SAParameters/SAParameters_Best_Cooling_Rate_Basic_Instances.csv"
+        #csv_filepath = "app/Results/SAParameters/SAParameters_Best_Cooling_Rate_Medium_Instances.csv"
+        csv_filepath = "app/Results/SAParameters/SAParameters_Best_Cooling_Rate_Hard_Instance.csv"
         
         print(f"Start running... Results will be saved to {csv_filepath}")
     

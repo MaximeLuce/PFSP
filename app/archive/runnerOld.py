@@ -37,10 +37,8 @@ class ExperimentRunner:
                 ea_results.append(float(best_ind.fitness))
 
             # simulated 
-            # Hypothèse : ton EA utilise pop_size=100 et generations=100
             total_evals = 100 * 100
 
-            # Tu lances le Recuit Simulé
             sa = SimulatedAnnealing(problem, max_evaluations=total_evals)
             best_sa_solution = sa.run()
 

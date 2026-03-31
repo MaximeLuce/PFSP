@@ -86,7 +86,7 @@ class EvolutionaryAlgorithm(OptimizationAlgorithm):
             # Copy the mapping's section from p2
             child_seq[start:end+1] = p2.sequence[start:end+1]
             
-            # Create the correspondance dictionary (mapping) : p2_val -> p1_val
+            # Create the correspondance dictionary, the mapping
             mapping = {}
             for i in range(start, end+1):
                 mapping[p2.sequence[i]] = p1.sequence[i]
